@@ -20,20 +20,8 @@ if(count($_POST) > 0) {
         $erro = "Preencha o nome";
     }
 
-    if(empty($email)) {
-        $erro = "Preencha o email";
-    }
     if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erro = "Preencha o email";
-    }
-
-    if(!empty($nascimento)) {
-        $pedacos = explode('/', $nascimento);
-        if(count($pedacos) == 3) {
-            $nascimento = implode('-', array_reverse($pedacos));
-        } else {
-            $erro = "A data de nascimento deve seguir o padrão dia/mẽs/ano.";
-        }
     }
 
     if(!empty($telefone)) {
@@ -43,16 +31,32 @@ if(count($_POST) > 0) {
         }
     }
 
+    if(!empty($nascimento)) {
+        $pedacos = explode('/', $nascimento);
+        if(count($pedacos) == 3) {
+            $nascimento = implode('-', array_reverse($pedacos));
+        } else {
+            $erro = "A data de nascimento deve seguir o padrão dia/mês/ano.";
+        }
+    }
+
+
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
-        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento) 
+        VALUES ('$nome', '$email', '$telefone', '$nascimento')";
 
-        $result = mysqli_query($sql);
+        // $sql = "INSERT INTO nomes (nome) 
+        // VALUES ('$nome')";
+
+        $result = $conn->query($sql);
+        if($result) {
             echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
             unset($_POST);
         }
+    }
+
 
 }
 
@@ -90,8 +94,7 @@ if(count($_POST) > 0) {
         </div>
         <div>
             <label hidden>Data de Nascimento</label>
-            <input type="text" name="nascimento" placeholder="Data de Nascimento"
-            value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>">
+            <input value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
         </div>
 
         <div>
