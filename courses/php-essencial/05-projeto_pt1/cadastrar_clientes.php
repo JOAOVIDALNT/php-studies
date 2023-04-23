@@ -44,13 +44,10 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento) 
-        VALUES ('$nome', '$email', '$telefone', '$nascimento')";
+        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data) 
+        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
 
-        // $sql = "INSERT INTO nomes (nome) 
-        // VALUES ('$nome')";
-
-        $result = $conn->query($sql);
+        $result = $conn->query($sql) or die($conn->error);
         if($result) {
             echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
             unset($_POST);
