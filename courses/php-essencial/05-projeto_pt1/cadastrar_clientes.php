@@ -46,13 +46,16 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
-        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        // $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
+        // VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql = "INSERT INTO teste (nome) VALUES ('$nome')";
 
-        $result = mysqli_query($sql);
+        $result = $conn->query($sql);
+        if($conn) {
             echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
             unset($_POST);
         }
+    }
 
 }
 
