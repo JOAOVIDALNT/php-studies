@@ -20,20 +20,8 @@ if(count($_POST) > 0) {
         $erro = "Preencha o nome";
     }
 
-    if(empty($email)) {
-        $erro = "Preencha o email";
-    }
     if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erro = "Preencha o email";
-    }
-
-    if(!empty($nascimento)) {
-        $pedacos = explode('/', $nascimento);
-        if(count($pedacos) == 3) {
-            $nascimento = implode('-', array_reverse($pedacos));
-        } else {
-            $erro = "A data de nascimento deve seguir o padrão dia/mẽs/ano.";
-        }
     }
 
     if(!empty($telefone)) {
@@ -43,19 +31,41 @@ if(count($_POST) > 0) {
         }
     }
 
+    if(!empty($nascimento)) {
+        $pedacos = explode('/', $nascimento);
+        if(count($pedacos) == 3) {
+            $nascimento = implode('-', array_reverse($pedacos));
+        } else {
+            $erro = "A data de nascimento deve seguir o padrão dia/mês/ano.";
+        }
+    }
+
+
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
+<<<<<<< HEAD
         // $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
         // VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
         $sql = "INSERT INTO teste (nome) VALUES ('$nome')";
 
         $result = $conn->query($sql);
         if($conn) {
+=======
+        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data) 
+        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+
+        $result = $conn->query($sql) or die($conn->error);
+        if($result) {
+>>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
             echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
             unset($_POST);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
 
 }
 
@@ -93,8 +103,7 @@ if(count($_POST) > 0) {
         </div>
         <div>
             <label hidden>Data de Nascimento</label>
-            <input type="text" name="nascimento" placeholder="Data de Nascimento"
-            value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>">
+            <input value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
         </div>
 
         <div>
