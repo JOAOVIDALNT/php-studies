@@ -1,25 +1,72 @@
 <?php
 
-$erro = false;
-if(count($_POST)) {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $nascimento = $_nascimento['nascimento'];
+function limpar_texto($str) {
+    return preg_replace("/[^0-9]/", "", $str); 
+}
+
+
+if(count($_POST) > 0) {
+
+
+    include "conexao.php";
+    $erro = false;
+
+     $nome = $_POST['nome'];
+     $email = $_POST['email'];
+     $telefone = $_POST['telefone'];
+     $nascimento = $_POST['nascimento'];
 
     if(empty($nome)) {
         $erro = "Preencha o nome";
     }
 
-    if(empty($email)) {
+    if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erro = "Preencha o email";
     }
 
+    if(!empty($telefone)) {
+        $telefone = limpar_texto($telefone);
+        if(strlen($telefone) != 11) {
+            $erro = "O telefone deve ser preenchido no padrão (11)99999-9999";
+        }
+    }
+
+    if(!empty($nascimento)) {
+        $pedacos = explode('/', $nascimento);
+        if(count($pedacos) == 3) {
+            $nascimento = implode('-', array_reverse($pedacos));
+        } else {
+            $erro = "A data de nascimento deve seguir o padrão dia/mês/ano.";
+        }
+    }
 
 
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
+    } else {
+<<<<<<< HEAD
+        // $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
+        // VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql = "INSERT INTO teste (nome) VALUES ('$nome')";
+
+        $result = $conn->query($sql);
+        if($conn) {
+=======
+        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data) 
+        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+
+        $result = $conn->query($sql) or die($conn->error);
+        if($result) {
+>>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
+            echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
+            unset($_POST);
+        }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
+
 }
 
 ?>
@@ -40,23 +87,27 @@ if(count($_POST)) {
     <!-- cadastro feito dentro desta página (action em branco) -->
         <div>
             <label hidden>Nome</label>
-            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="nome" placeholder="Nome" 
+            value="<?php if(isset($_POST['nome'])) echo $_POST['nome'] ?>">
+            <!-- define que se o nome estiver setado o campo mantem o valor inserido caso ocorra algum erro -->
         </div>
         <div>
             <label hidden>Email</label>
-            <input type="text" name="email" placeholder="E-mail">
+            <input type="text" name="email" placeholder="E-mail"
+            value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>">
         </div>
         <div>
             <label hidden>Telefone</label>
-            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="text" name="telefone" placeholder="Telefone" placeholder="(11)99999-9999"
+            value="<?php if(isset($_POST['telefone'])) echo $_POST['telefone'] ?>">
         </div>
         <div>
             <label hidden>Data de Nascimento</label>
-            <input type="text" name="nascimento" placeholder="Data de Nascimento">
+            <input value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
         </div>
 
         <div>
-            <button type="submit">Salvar Cliente</button>
+            <button type="submit" name="submit">Salvar Cliente</button>
         </div>
     </form>
 </body>
