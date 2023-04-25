@@ -3,7 +3,7 @@
 $hostname = "localhost:3306";
 $database = "teste_php";
 $user = "root";
-$password = "root";
+$password = "";
 
 $mysqli = new mysqli($hostname, $user, $password, $database);
 if ($mysqli->connect_errno) {
