@@ -1,116 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pedido>
-   <cliente>
-       <nome>Organisys Software</nome>
-       <tipoPessoa>J</tipoPessoa>
-       <cpf_cnpj>00000000000000</cpf_cnpj>
-       <ie_rg>3067663000</ie_rg>
-       <endereco>Rua Visconde de São Gabriel</endereco>
-       <numero>392</numero>
-       <complemento>Sala 54</complemento>
-       <bairro>Cidade Alta</bairro>
-       <cep>95.700-000</cep>
-       <cidade>Bento Gonçalves</cidade>
-       <uf>RS</uf>
-       <fone>54 8115-3376</fone>
-       <email>teste@teste.com.br</email>
-   </cliente>
-   <transporte>
-       <transportadora>Transportadora XYZ</transportadora>
-       <cpf_cnpj>11122233345</cpf_cnpj>
-       <ie_rg>1122334455</ie_rg>
-       <endereco>Rua Silvio Orlandini, 435</endereco>
-       <cidade>Roca Sales</cidade>
-       <uf>RS</uf>
-       <placa>ILM-1020</placa>
-       <uf_veiculo>RS</uf_veiculo>
-       <tipo_frete>R</tipo_frete>
-       <qtde_volumes>10</qtde_volumes>
-       <especie>Volumes</especie>
-       <numero>425</numero>
-       <peso_bruto>157</peso_bruto>
-       <peso_liquido>142</peso_liquido>
-       <servico_correios>SEDEX</servico_correios>
-       <dados_etiqueta>
-          <nome>Endereço de entrega</nome>
-          <endereco>Rua Visconde de São Gabriel</endereco>
-          <numero>392</numero>
-          <complemento>Sala 59</complemento>
-          <municipio>Bento Gonçalves</municipio>
-          <uf>RS</uf>
-          <cep>95.700-000</cep>
-          <bairro>Cidade Alta</bairro>
-       </dados_etiqueta>
-   </transporte>
-   <itens>
-       <item>
-          <codigo>001</codigo>
-          <descricao>Caneta 001</descricao>
-          <un>Pç</un>
-          <qtde>10</qtde>
-          <vlr_unit>1.68</vlr_unit>
-          <tipo>P</tipo>
-          <peso_bruto>0.2</peso_bruto>
-          <peso_liq>0.18</peso_liq>
-          <class_fiscal>1000.00.10</class_fiscal>
-          <origem>0</origem>
-       </item>
-       <item>
-          <codigo>002</codigo>
-          <descricao>Caderno 002</descricao>
-          <un>Un</un>
-          <qtde>3</qtde>
-          <vlr_unit>3.75</vlr_unit>
-          <tipo>P</tipo>
-          <peso_bruto>0.75</peso_bruto>
-          <peso_liq>0.7</peso_liq>
-          <class_fiscal>1000.00.10</class_fiscal>
-          <origem>0</origem>
-       </item>
-       <item>
-          <codigo>003</codigo>
-          <descricao>Teclado 003</descricao>
-          <un>Cx</un>
-          <qtde>7</qtde>
-          <vlr_unit>18.65</vlr_unit>
-          <tipo>P</tipo>
-          <peso_bruto>0.65</peso_bruto>
-          <peso_liq>0.52</peso_liq>
-          <class_fiscal>1000.00.10</class_fiscal>
-          <origem>0</origem>
-       </item>
-    </itens>
-    <parcelas>
-       <parcela>
-          <dias>10</dias>
-          <data>01/09/2009</data>
-          <vlr>100</vlr>
-          <obs>Teste obs 1</obs>
-          <forma>Dinheiro</forma>
-       </parcela>
-       <parcela>
-          <dias>15</dias>
-          <data>06/09/2009</data>
-          <vlr>50</vlr>
-          <obs></obs>
-          <forma>Dinheiro</forma>
-       </parcela>
-       <parcela>
-          <dias>20</dias>
-          <data>11/09/2009</data>
-          <vlr>50</vlr>
-          <obs>Teste obs 3</obs>
-          <forma>Dinheiro</forma>
-       </parcela>
-    </parcelas>
-    <nf_produtor_rural_referenciada>
-       <numero>001020</numero>
-       <serie>0</serie>
-       <ano_mes_emissao>1202</ano_mes_emissao>
-    </nf_produtor_rural_referenciada>
-    <vlr_frete>15</vlr_frete>
-    <vlr_seguro>7</vlr_seguro>
-    <vlr_despesas>2.5</vlr_despesas>
-    <vlr_desconto>10</vlr_desconto>
-    <obs>Testando o campo observações do pedido</obs>
+  <cliente>
+    <nome></nome>
+    <tipoPessoa>F</tipoPessoa>
+    <endereco></endereco>
+    <numero>0</numero>
+    <bairro>0</bairro>
+    <cep>780800</cep>
+    <cidade>São Paulo</cidade>
+    <uf>SP</uf>
+    <email>joao@gmail.com</email>
+  </cliente>
+  <itens>
+    <item>
+      <codigo>codigo0</codigo>
+      <descricao>descricao0</descricao>
+      <un>un0</un>
+      <qtde>qtde0</qtde>
+      <vlr_unit>vlr_unit0</vlr_unit>
+      <tipo>tipo0</tipo>
+      <origem>origem0</origem>
+    </item>
+    <item>
+      <codigo>codigo1</codigo>
+      <descricao>descricao1</descricao>
+      <un>un1</un>
+      <qtde>qtde1</qtde>
+      <vlr_unit>vlr_unit1</vlr_unit>
+      <tipo>tipo1</tipo>
+      <origem>origem1</origem>
+    </item>
+    <item>
+      <codigo>codigo2</codigo>
+      <descricao>descricao2</descricao>
+      <un>un2</un>
+      <qtde>qtde2</qtde>
+      <vlr_unit>vlr_unit2</vlr_unit>
+      <tipo>tipo2</tipo>
+      <origem>origem2</origem>
+    </item>
+    <item>
+      <codigo>codigo3</codigo>
+      <descricao>descricao3</descricao>
+      <un>un3</un>
+      <qtde>qtde3</qtde>
+      <vlr_unit>vlr_unit3</vlr_unit>
+      <tipo>tipo3</tipo>
+      <origem>origem3</origem>
+    </item>
+    <item>
+      <codigo>codigo4</codigo>
+      <descricao>descricao4</descricao>
+      <un>un4</un>
+      <qtde>qtde4</qtde>
+      <vlr_unit>vlr_unit4</vlr_unit>
+      <tipo>tipo4</tipo>
+      <origem>origem4</origem>
+    </item>
+  </itens>
 </pedido>

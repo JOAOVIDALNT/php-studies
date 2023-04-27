@@ -1,19 +1,20 @@
 <?php
+include 'formulario.php';
 
 
-$xml = simplexml_load_file('arquivo.xml');
+$url = 'https://bling.com.br/Api/v2/notafiscal/json/';
 
-$url = 'https://bling.com.br/Api/v2/pedido/json/';
-
-$token = 'a531d2d258041c260d90c3f8c60f7808904836b30a0751b7bcb7a77689f505343e3cdb3d';
+$token = ""; //893b02ac2d3c5b315e3e011a72a2965a22b8c3d789001425f069c510291ac299d94468cc
 
 $posts = array (
-    "apikey" => $token,
-    "xml" => rawurlencode($xml)
+    "apikey"    => $token,
+    "number"    => 255506,
+    "serie"     => 3,
+    "sendEmail" => false
 );
-$retorno = executeSendOrder($url, $posts);
+$retorno = executeSendFiscalDocument($url, $posts);
 echo $retorno;
-function executeSendOrder($url, $data){
+function executeSendFiscalDocument($url, $data){
     $curl_handle = curl_init();
     curl_setopt($curl_handle, CURLOPT_URL, $url);
     curl_setopt($curl_handle, CURLOPT_POST, count($data));

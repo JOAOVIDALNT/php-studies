@@ -9,8 +9,8 @@
 
 
 #### CLIENTE
-- nome do cliente | STRING(80)
-- tipo de pessoa (fisica, juridica ou estrangeiro) | STRING(1) -> J, F ou E
+- nome do cliente | STRING(80) [x]
+- tipo de pessoa (fisica, juridica ou estrangeiro) | STRING(1) -> J, F ou E [x]
 - endereço | STRING(100)
 - número (número da casa) | STRING(10)
 - bairro | STRING(40)
