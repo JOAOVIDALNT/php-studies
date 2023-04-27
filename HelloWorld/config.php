@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+$hostname = "localhost:3306";
+$database = "teste_php";
+$user = "root";
+$password = "";
+=======
 $host = "localhost";
 $port = "5432";
 $database = "teste";
@@ -20,4 +26,5 @@ if(!$conn) {
     die("Não foi possível acessar o banco de dados");
 }
 
+>>>>>>> a233838fde213d6481ef463193451732c88fcb1d
 
