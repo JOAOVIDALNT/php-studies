@@ -7,6 +7,7 @@
 #### GERAL
 - pedido
 
+codigo STRING(60)
 
 #### CLIENTE
 - nome do cliente | STRING(80) [x]

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pedido>
   <cliente>
-    <nome></nome>
+    <nome>João Vidal</nome>
     <tipoPessoa>F</tipoPessoa>
-    <endereco></endereco>
+    <endereco>Rua Daniel de Toledo</endereco>
     <numero>0</numero>
-    <bairro>0</bairro>
+    <bairro>Vila do Chaves</bairro>
     <cep>780800</cep>
     <cidade>São Paulo</cidade>
     <uf>SP</uf>
@@ -14,7 +14,7 @@
   <itens>
     <item>
       <codigo>codigo0</codigo>
-      <descricao>descricao0</descricao>
+      <descricao></descricao>
       <un>un0</un>
       <qtde>qtde0</qtde>
       <vlr_unit>vlr_unit0</vlr_unit>
@@ -23,7 +23,7 @@
     </item>
     <item>
       <codigo>codigo1</codigo>
-      <descricao>descricao1</descricao>
+      <descricao></descricao>
       <un>un1</un>
       <qtde>qtde1</qtde>
       <vlr_unit>vlr_unit1</vlr_unit>
@@ -32,7 +32,7 @@
     </item>
     <item>
       <codigo>codigo2</codigo>
-      <descricao>descricao2</descricao>
+      <descricao></descricao>
       <un>un2</un>
       <qtde>qtde2</qtde>
       <vlr_unit>vlr_unit2</vlr_unit>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <codigo>codigo3</codigo>
-      <descricao>descricao3</descricao>
+      <descricao></descricao>
       <un>un3</un>
       <qtde>qtde3</qtde>
       <vlr_unit>vlr_unit3</vlr_unit>
@@ -50,7 +50,7 @@
     </item>
     <item>
       <codigo>codigo4</codigo>
-      <descricao>descricao4</descricao>
+      <descricao></descricao>
       <un>un4</un>
       <qtde>qtde4</qtde>
       <vlr_unit>vlr_unit4</vlr_unit>
