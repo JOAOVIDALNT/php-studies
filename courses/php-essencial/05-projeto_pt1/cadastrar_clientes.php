@@ -44,28 +44,15 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-<<<<<<< HEAD
-        // $sql = "INSERT INTO clientes (nome, email, telefone, dara_nascimento, data_cadastro) 
-        // VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
-        $sql = "INSERT INTO teste (nome) VALUES ('$nome')";
-
-        $result = $conn->query($sql);
-        if($conn) {
-=======
         $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data) 
         VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
 
         $result = $conn->query($sql) or die($conn->error);
         if($result) {
->>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
             echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
             unset($_POST);
         }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> e4ac5667d75f481204e2320416e7458cfc55ee72
 
 }
 
