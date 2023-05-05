@@ -1,8 +1,8 @@
 <?php
 
 $apikey = "893b02ac2d3c5b315e3e011a72a2965a22b8c3d789001425f069c510291ac299d94468cc";
-$documentNumber = 072123;
-$documentSerie = 4;
+$documentNumber = 260026;
+$documentSerie = 3;
 $outputType = "json";
 $url = 'https://bling.com.br/Api/v2/notafiscal/' . $documentNumber . '/'. $documentSerie . '/' . $outputType;
 $retorno = executeGetFiscalDocument($url, $apikey);
