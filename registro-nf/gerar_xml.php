@@ -8,9 +8,8 @@ if (count($_POST) > 0) {
     $enderecoBanco = $_POST['Endereco'];
     $codigoProduto = $_POST['codigoProduto'];
 
-    $lista_produto = buscar_produto($conn, $codigoProduto);
+    $description = buscar_produto($conn, $codigoProduto);
 
-    $description = $lista_produto;
 
     $dom = new DOMDocument('1.0', 'UTF-8');
     $dom->formatOutput = true; // FORMATA A SAÍDA DO XML
@@ -45,7 +44,7 @@ if (count($_POST) > 0) {
         $un->appendChild($unValue);
 
         $descricao = $dom->createElement('descricao');
-        $descricaoValue = $dom->createTextNode('descricao' . $i);
+        $descricaoValue = $dom->createTextNode($description);
         $descricao->appendChild($descricaoValue);
 
         $codigo = $dom->createElement('codigo');
@@ -148,15 +147,11 @@ if (count($_POST) > 0) {
 
 function buscar_produto($conn, $codigoProduto) {
     
-    $consultaSelect = "SELECT * FROM itens WHERE `codigo` = $codigoProduto";
+    $consultaSelect = "SELECT descricao FROM itens WHERE 'codigo' = $codigoProduto";
 
-    $selectDesc = mysqli_query($conn, $consultaSelect);
-    $results = array();
-    while($desc = mysqli_fetch_assoc($selectDesc)) {
-        $results[] = $desc;
-    }
+    $result = $conn->query($consultaSelect);
 
-    return $results;
+    return $result;
 }
 
 unset($_POST);

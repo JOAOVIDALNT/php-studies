@@ -14,7 +14,7 @@
   <itens>
     <item>
       <codigo>codigo0</codigo>
-      <descricao></descricao>
+      <descricao>descricao0</descricao>
       <un>un0</un>
       <qtde>qtde0</qtde>
       <vlr_unit>vlr_unit0</vlr_unit>
@@ -23,7 +23,7 @@
     </item>
     <item>
       <codigo>codigo1</codigo>
-      <descricao></descricao>
+      <descricao>descricao1</descricao>
       <un>un1</un>
       <qtde>qtde1</qtde>
       <vlr_unit>vlr_unit1</vlr_unit>
@@ -32,7 +32,7 @@
     </item>
     <item>
       <codigo>codigo2</codigo>
-      <descricao></descricao>
+      <descricao>descricao2</descricao>
       <un>un2</un>
       <qtde>qtde2</qtde>
       <vlr_unit>vlr_unit2</vlr_unit>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <codigo>codigo3</codigo>
-      <descricao></descricao>
+      <descricao>descricao3</descricao>
       <un>un3</un>
       <qtde>qtde3</qtde>
       <vlr_unit>vlr_unit3</vlr_unit>
@@ -50,7 +50,7 @@
     </item>
     <item>
       <codigo>codigo4</codigo>
-      <descricao></descricao>
+      <descricao>descricao4</descricao>
       <un>un4</un>
       <qtde>qtde4</qtde>
       <vlr_unit>vlr_unit4</vlr_unit>
