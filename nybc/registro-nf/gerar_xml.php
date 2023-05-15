@@ -147,11 +147,18 @@ if (count($_POST) > 0) {
 
 function buscar_produto($conn, $codigoProduto) {
     
-    $consultaSelect = "SELECT descricao FROM itens WHERE 'codigo' = $codigoProduto";
+    $consultaSelect = "SELECT descricao FROM itens WHERE codigo = $codigoProduto";
 
     $result = $conn->query($consultaSelect);
-
-    return $result;
+    
+    if(mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        // while($row = mysqli_fetch_assoc($result)) {
+        //     return $row['description'];
+        // }
+        return $row;
+    }
+    return;
 }
 
 unset($_POST);
