@@ -44,7 +44,7 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data) 
+        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data_cadastro) 
         VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
 
         $result = $conn->query($sql) or die($conn->error);
