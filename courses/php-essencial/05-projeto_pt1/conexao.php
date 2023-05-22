@@ -1,8 +1,8 @@
 <?php
-$host = "localhost:3306";
-$db = "crud_clientes";
+$host = "localhost";
+$db = "php-essencial";
 $user = "root";
-$pass = "root";
+$pass = "";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
