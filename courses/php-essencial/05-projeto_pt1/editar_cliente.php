@@ -1,5 +1,8 @@
 <?php
 
+include "conexao.php";
+
+
 function limpar_texto($str) {
     return preg_replace("/[^0-9]/", "", $str); 
 }
@@ -8,7 +11,6 @@ function limpar_texto($str) {
 if(count($_POST) > 0) {
 
 
-    include "conexao.php";
     $erro = false;
 
      $nome = $_POST['nome'];
@@ -44,7 +46,7 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, nascimento, data_cadastro) 
+        $sql = "INSERT INTO clientes (nome, email, telefone, data_nascimento, data_cadastro) 
         VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
 
         $result = $conn->query($sql) or die($conn->error);
@@ -55,6 +57,12 @@ if(count($_POST) > 0) {
     }
 
 }
+
+$id = intval($_GET['id']);
+$sql_select = "SELECT * FROM clientes WHERE id = '$id'";
+$query_cliente = $conn->query($sql_select) or die($conn->error);
+
+$cliente = $query_cliente->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -74,22 +82,22 @@ if(count($_POST) > 0) {
         <div>
             <label hidden>Nome</label>
             <input type="text" name="nome" placeholder="Nome" 
-            value="<?php if(isset($_POST['nome'])) echo $_POST['nome'] ?>">
-            <!-- define que se o nome estiver setado o campo mantem o valor inserido caso ocorra algum erro -->
+            value="<?php echo $cliente['nome'] ?>">
+            <!-- agora exibe o nome do cliente recuperado do banco -->
         </div>
         <div>
             <label hidden>Email</label>
             <input type="text" name="email" placeholder="E-mail"
-            value="<?php if(isset($_POST['email'])) echo $_POST['email'] ?>">
+            value="<?php echo $cliente['email'] ?>">
         </div>
         <div>
             <label hidden>Telefone</label>
             <input type="text" name="telefone" placeholder="Telefone" placeholder="(11)99999-9999"
-            value="<?php if(isset($_POST['telefone'])) echo $_POST['telefone'] ?>">
+            value="<?php echo $cliente['telefone'] ?>">
         </div>
         <div>
             <label hidden>Data de Nascimento</label>
-            <input value="<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
+            <input value="<?php echo $cliente['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
         </div>
 
         <div>
