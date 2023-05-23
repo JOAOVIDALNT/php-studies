@@ -39,7 +39,7 @@ class ComposerStaticInit0d5b9151eab68b297e6fb99943e243fd
         ),
         'C' => 
         array (
-            'CursoPhpWeb\\BuscadorCursos\\' => 27,
+            'Curso\\BuscadorDeCursos\\' => 23,
         ),
     );
 
@@ -85,7 +85,7 @@ class ComposerStaticInit0d5b9151eab68b297e6fb99943e243fd
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'CursoPhpWeb\\BuscadorCursos\\' => 
+        'Curso\\BuscadorDeCursos\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

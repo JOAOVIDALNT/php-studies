@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-require 'src/Buscador.php';
+
 
 use Curso\BuscadorDeCursos\Buscador;
 use GuzzleHttp\Client as ClientAlias;
