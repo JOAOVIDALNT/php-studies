@@ -2,7 +2,7 @@
 
 include "conexao.php";
 
-
+$id = intval($_GET['id']);
 function limpar_texto($str) {
     return preg_replace("/[^0-9]/", "", $str); 
 }
@@ -46,19 +46,23 @@ if(count($_POST) > 0) {
     if($erro) {
         echo "<p><strong>ERRO: $erro</strong></p>";
     } else {
-        $sql = "INSERT INTO clientes (nome, email, telefone, data_nascimento, data_cadastro) 
-        VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql = "UPDATE clientes
+        SET nome = '$nome',
+        email = '$email',
+        telefone = '$telefone',
+        nascimento = '$nascimento'
+        WHERE id = '$id'";
 
         $result = $conn->query($sql) or die($conn->error);
         if($result) {
-            echo "<p><strong>Cliente cadastrado com sucesso!!</strong></p>";
+            echo "<p><strong>Cliente atualizado com sucesso!!</strong></p>";
             unset($_POST);
         }
     }
 
 }
 
-$id = intval($_GET['id']);
+
 $sql_select = "SELECT * FROM clientes WHERE id = '$id'";
 $query_cliente = $conn->query($sql_select) or die($conn->error);
 
@@ -93,11 +97,11 @@ $cliente = $query_cliente->fetch_assoc();
         <div>
             <label hidden>Telefone</label>
             <input type="text" name="telefone" placeholder="Telefone" placeholder="(11)99999-9999"
-            value="<?php echo $cliente['telefone'] ?>">
+            value="<?php if(!empty($cliente['telefone'])) echo formatar_telefone($cliente['telefone']) ?>">
         </div>
         <div>
             <label hidden>Data de Nascimento</label>
-            <input value="<?php echo $cliente['nascimento'] ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
+            <input value="<?php if(!empty($cliente['nascimento'])) echo formatar_data($cliente['nascimento']) ?>" type="text" name="nascimento" placeholder="Data de Nascimento">
         </div>
 
         <div>

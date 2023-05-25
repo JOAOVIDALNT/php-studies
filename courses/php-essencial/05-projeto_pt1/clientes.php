@@ -39,14 +39,11 @@ $num_clientes = $result->num_rows;
                 while($cliente = $result->fetch_assoc()) {    
                     $telefone = "Não informado";
                     if(!empty($cliente['telefone'])) {
-                        $ddd = substr($cliente['telefone'], 0, 2); // STRING, INDICE INICIAL, TAMANHO (TOTAL DE CARACTERES)
-                        $parte1 = substr($cliente['telefone'], 2, 5);
-                        $parte2 = substr($cliente['telefone'], 7); // QUANDO TERMINA NO FINAL NÃO PRECISA PREENCHER
-                        $telefone = "($ddd) $parte1-$parte2";
+                        $telefone = formatar_telefone($cliente['telefone']);
                     }
                     $nascimento = "Não informado";
                     if(!empty($cliente['nascimento'])) {
-                        $nascimento = implode('/', array_reverse(explode('-', $cliente['nascimento'])));
+                        $nascimento = formatar_data($cliente['nascimento']);
                     }
                     $data_cadastro = date("d/m/Y H:i", strtotime($cliente['data_cadastro'])); // strtotime transforma a data em timestamp e funciona apenas com data no formato estrangeiro 
             ?>
