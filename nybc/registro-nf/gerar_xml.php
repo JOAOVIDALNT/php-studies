@@ -151,14 +151,8 @@ function buscar_produto($conn, $codigoProduto) {
 
     $result = $conn->query($consultaSelect);
     
-    if(mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        // while($row = mysqli_fetch_assoc($result)) {
-        //     return $row['description'];
-        // }
-        return $row;
-    }
-    return;
+    $produto = $result->fetch_assoc();
+    return $produto;
 }
 
 unset($_POST);
