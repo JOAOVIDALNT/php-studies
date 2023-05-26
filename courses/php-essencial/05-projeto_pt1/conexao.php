@@ -2,10 +2,10 @@
 $host = "localhost";
 $db = "php-essencial";
 $user = "root";
-$pass = "root";
-$port = 3306;
+$pass = "";
+// $port = 3306;
 
-$conn = new mysqli($host, $user, $pass, $db, $port);
+$conn = new mysqli($host, $user, $pass, $db);
 
 if($conn->connect_errno) {
    die("Falha na conexão com o banco de dados");
