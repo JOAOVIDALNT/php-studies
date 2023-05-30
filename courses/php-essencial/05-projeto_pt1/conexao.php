@@ -1,9 +1,8 @@
 <?php
-$host = "localhost";
+$host = "localhost:3306";
 $db = "php-essencial";
 $user = "root";
-$pass = "";
-// $port = 3306;
+$pass = "root";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
