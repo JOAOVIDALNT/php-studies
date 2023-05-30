@@ -9,10 +9,11 @@ if(!isset($_SESSION['usuario']))
 
 if(isset($_POST['email'])) {
 
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-    $conn->query("INSERT INTO senhas (email, senha) VALUES('$email','$senha')");
+    $conn->query("INSERT INTO senhas (nome, email, senha) VALUES('$nome','$email','$senha')");
 }
 // JÁ SABEMOS QUE EXISTE SESSÃO, POIS A APLICAÇÃO NÃO MORREU, ENTÃO VAMOS PEGAR DADOS DO BANCO, PARA POR EXEMPLO, EXIBIR O NOME DO USUÁRIO
 $id = $_SESSION['usuario'];
@@ -34,6 +35,10 @@ $usuario = $sql->fetch_assoc();
 <form action="" method="POST">
     <p>Bem vindo, <?php echo $usuario['nome']?></p>
         <h1>Cadastro de usuário</h1>
+        <p>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome"><br>
+        </p>
         <p>
             <label for="email">Email</label>
             <input type="text" name="email"><br>
