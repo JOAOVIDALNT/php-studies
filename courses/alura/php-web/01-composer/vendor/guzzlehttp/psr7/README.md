@@ -406,7 +406,7 @@ Example headers include `accept`, `cache-control` and `if-none-match`.
 
 `public static function normalize(string|array $header): array`
 
-`Header::normalize()` is deprecated in favor of [`Header::splitList()`](README.md#guzzlehttppsr7headersplitlist)
+`Header::normalize()` is deprecated in favor of [`Header::splitList()`](php/php-studies/courses/alura/php-web/01-composer/vendor/guzzlehttp/psr7/README.md#guzzlehttppsr7headersplitlist)
 which performs the same operation with a cleaned up API and improved
 documentation.
 
